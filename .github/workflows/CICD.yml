@@ -38,9 +38,9 @@ jobs:
       - name: Configure SSH
         run: |
           cd /
-          mkdir .ssh
           echo $SSH_PRIVATE > ./.ssh/id_rsa
           cat ./.ssh/id_rsa
+
       # - name: executing remote ssh commands using password
       #   uses: appleboy/ssh-action@v0.1.7
       #   with:
