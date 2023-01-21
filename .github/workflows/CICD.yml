@@ -35,12 +35,12 @@ jobs:
         run: |
           docker push $IMAGE_NAME:$GITHUB_RUN_ID
 
-      - name: remote ssh
-        uses: fifsky/ssh-action@master
+      - name: Deploy code
+        uses: appleboy/deploy-action@v1
         with:
           host: ${{ secrets.HOST }}
-          key: ${{ secrets.SSH_PRIVATE }}
-          pass: ${{ secrets.PASSPHRASE }}
-          command: |
-            echo 'hello world'
+          username: ${{ secrets.DIGITALOCEAN_USERNAME }}
+          private_key: ${{ secrets.SSH_PRIVATE }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          commands: |
             docker service ls
