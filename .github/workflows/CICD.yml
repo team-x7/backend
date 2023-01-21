@@ -39,12 +39,12 @@ jobs:
         uses: appleboy/ssh-action@v0.1.7
         env:
           IMAGE: ${{ env.IMAGE_NAME }}
-          RUN_ID: ${{ format('{0}', env.GITHUB_RUN_ID) }}
+          RUN_ID: id-${{ env.GITHUB_RUN_ID }}
         with:
           username: ${{ secrets.DIGITALOCEAN_USERNAME }}
           host: ${{ secrets.HOST }}
           key: ${{ secrets.SSH_PRIVATE }}
           envs: IMAGE,RUN_ID
           script: |
-            echo $IMAGE
+            echo $IMAGE:$RUN_ID
             docker service update --image $IMAGE:$RUN_ID node-api
