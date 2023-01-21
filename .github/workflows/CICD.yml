@@ -44,4 +44,4 @@ jobs:
           host: ${{ secrets.HOST }}
           key: ${{ secrets.SSH_PRIVATE }}
           script: |
-            docker service update --image $image node-api
+            docker service update --image "$image" node-api
