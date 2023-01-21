@@ -39,7 +39,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.7
         env:
           IMAGE: ${{ env.IMAGE_NAME }}
-          RUN_ID: ${{ env.GITHUB_RUN_ID }}
+          RUN_ID: ${{ format('{0}', env.GITHUB_RUN_ID) }}
         with:
           username: ${{ secrets.DIGITALOCEAN_USERNAME }}
           host: ${{ secrets.HOST }}
