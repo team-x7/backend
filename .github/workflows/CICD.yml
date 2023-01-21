@@ -37,10 +37,11 @@ jobs:
 
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v0.1.7
+        env:
+          image: $IMAGE_NAME:$GITHUB_RUN_ID
         with:
           username: ${{ secrets.DIGITALOCEAN_USERNAME }}
           host: ${{ secrets.HOST }}
           key: ${{ secrets.SSH_PRIVATE }}
           script: |
-            whoami
-            docker service ls
+            docker service update --image $image node-api

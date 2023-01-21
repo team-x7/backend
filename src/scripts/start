@@ -53,6 +53,11 @@ if [ "$backend" = '[]' ]; then
   -p 7000:7000 \
   --env MONGODB_URI="mongodb://mongo:27017/db_v1" \
   --replicas 3 \
+  --health-cmd "node /app/src/healthcheck.js" \
+  --health-start-period 5s \
+  --health-timeout 5s \
+  --health-interval 5s \
+  --health-retries 3 \
   --update-order start-first \
   --update-failure-action rollback \
   --update-delay 5s \
@@ -64,9 +69,3 @@ else
   docker service update --image "ramankarki/x7-backend:${imageTag}" node-api
 fi
 
-
-  # --health-cmd "node /app/src/healthcheck.js" \
-  # --health-start-period 5s \
-  # --health-timeout 5s \
-  # --health-interval 5s \
-  # --health-retries 3 \

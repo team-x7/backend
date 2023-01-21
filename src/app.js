@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/healthcheck', (req, res) => {
-  res.json({ status: 'healthy' })
+  res.json({ status: 'healthy aba xai healthy vayo' })
 })
 
 module.exports = app
