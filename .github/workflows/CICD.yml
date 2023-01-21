@@ -38,7 +38,7 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v0.1.7
         env:
-          IMAGE: ${{ env.IMAGE_NAME }}:${{ env.GITHUB_RUN_ID }}
+          IMAGE: ${{ env.IMAGE_NAME }}:${{ runner.run_id }}
         with:
           username: ${{ secrets.DIGITALOCEAN_USERNAME }}
           host: ${{ secrets.HOST }}
