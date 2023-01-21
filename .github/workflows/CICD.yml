@@ -33,7 +33,7 @@ jobs:
 
       - name: Push image
         run: |
-          docker push $IMAGE_NAME:$GITHUB_RUN_ID
+          docker push $IMAGE_NAME:id-$GITHUB_RUN_ID
 
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v0.1.7
@@ -46,5 +46,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE }}
           envs: IMAGE,RUN_ID
           script: |
-            echo $IMAGE:$RUN_ID
             docker service update --image $IMAGE:$RUN_ID node-api
