@@ -1,0 +1,36 @@
+name: CICD pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+env:
+  IMAGE_NAME: ramankarki/x7-backend
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build image
+        run: docker image build --tag $IMAGE_NAME:$GITHUB_RUN_ID --target prod .
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push image
+        run: |
+          docker push $IMAGE_NAME:$GITHUB_RUN_ID
