@@ -12,7 +12,6 @@ process.on('uncaughtException', (err) => {
 
 mongoose.set('strictQuery', false)
 
-console.log('hello world')
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
