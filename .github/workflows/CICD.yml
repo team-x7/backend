@@ -38,12 +38,13 @@ jobs:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v0.1.7
         env:
-          IMAGE: ${{ env.IMAGE_NAME }}:${{ runner.run_id }}
+          IMAGE: ${{ env.IMAGE_NAME }}
+          RUN_ID: ${{ runner.run_id }}
         with:
           username: ${{ secrets.DIGITALOCEAN_USERNAME }}
           host: ${{ secrets.HOST }}
           key: ${{ secrets.SSH_PRIVATE }}
-          envs: IMAGE
+          envs: IMAGE,RUN_ID
           script: |
             echo $IMAGE
-            docker service update --image $IMAGE node-api
+            docker service update --image $IMAGE:$RUN_ID node-api
