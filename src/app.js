@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
   res.json({ msg: 'hello world' })
 })
 
-app.get('healthcheck', (req, res) => {
+app.get('/healthcheck', (req, res) => {
   res.json({ status: 'healthy' })
 })
 

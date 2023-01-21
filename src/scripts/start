@@ -24,26 +24,26 @@ else
   echo "backend network exists"
 fi
 
-# volume=$(docker volume inspect mongodb)
-# if [ "$volume" =  '[]' ]; then
-#   docker volume create mongodb
-#   echo "mongodb volume created"
-# else
-#   echo "mongodb volume exists"
-# fi
+volume=$(docker volume inspect mongodb)
+if [ "$volume" =  '[]' ]; then
+  docker volume create mongodb
+  echo "mongodb volume created"
+else
+  echo "mongodb volume exists"
+fi
 
-# mongo=$(docker service inspect mongo)
-# if [ "$mongo" =  '[]' ]; then
-#   docker service create \
-#   --name mongo \
-#   --network backend \
-#   --mount source=mongodb,destination=/data/db \
-#   --health-cmd "echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/test --quiet" \
-#   mongo
-#   echo "mongo service created"
-# else
-#   echo "mongo service exists"
-# fi
+mongo=$(docker service inspect mongo)
+if [ "$mongo" =  '[]' ]; then
+  docker service create \
+  --name mongo \
+  --network backend \
+  --mount source=mongodb,destination=/data/db \
+  mongo
+  # --health-cmd "echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/test --quiet" \
+  echo "mongo service created"
+else
+  echo "mongo service exists"
+fi
 
 backend=$(docker service inspect node-api)
 if [ "$backend" = '[]' ]; then
@@ -51,13 +51,8 @@ if [ "$backend" = '[]' ]; then
   --name node-api \
   --network backend \
   -p 7000:7000 \
-  --env MONGODB_URI="mongodb://localhost:27017/db_v1" \
+  --env MONGODB_URI="mongodb://mongo:27017/db_v1" \
   --replicas 3 \
-  --health-cmd "node ../healthcheck.js" \
-  --health-start-period 5s \
-  --health-timeout 5s \
-  --health-interval 5s \
-  --health-retries 3 \
   --update-order start-first \
   --update-failure-action rollback \
   --update-delay 5s \
@@ -69,3 +64,9 @@ else
   docker service update --image "ramankarki/x7-backend:${imageTag}" node-api
 fi
 
+
+  # --health-cmd "node /app/src/healthcheck.js" \
+  # --health-start-period 5s \
+  # --health-timeout 5s \
+  # --health-interval 5s \
+  # --health-retries 3 \
