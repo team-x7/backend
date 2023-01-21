@@ -35,22 +35,14 @@ jobs:
         run: |
           docker push $IMAGE_NAME:$GITHUB_RUN_ID
 
-      - name: Checking
-        run: |
-          echo ${{ secrets.DIGITALOCEAN_USERNAME }}
-          echo ${{ secrets.HOST }}
-          echo ${{ secrets.SSH_PORT }}
-          echo ${{ secrets.SSH_PRIVATE }}
-          echo ${{ secrets.SSH_PHRASE }}
+      - name: Start ssh-agent
+        run: eval "$(ssh-agent -s)"
 
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@v0.1.7
-        with:
-          username: ${{ secrets.DIGITALOCEAN_USERNAME }}
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_PRIVATE }}
-          passphrase: ${{ secrets.SSH_PHRASE }}
-          script: |
-            whoami
-            docker service ls
+      - name: Add private key to ssh-agent
+        run: ssh-add ${{ secrets.SSH_PRIVATE }}
+
+      - name: Enter passphrase for private key
+        run: echo ${{ secrets.SSH_PHRASE }} | ssh-add -
+
+      - name: Run commands on remote server
+        run: ssh -i ${{ secrets.SSH_PRIVATE }} root@64.227.132.232 'docker service ls && whoami'
