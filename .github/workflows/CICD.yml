@@ -42,4 +42,7 @@ jobs:
           username: ${{ secrets.DIGITALOCEAN_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE }}
           port: ${{ secrets.SSH_PORT }}
-          script: whoami
+          passphrase: ${{ secrets.SSH_PHRASE }}
+          script: |
+            whoami
+            docker service ls
