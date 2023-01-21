@@ -35,13 +35,21 @@ jobs:
         run: |
           docker push $IMAGE_NAME:$GITHUB_RUN_ID
 
+      - name: Checking
+        run: |
+          echo ${{ secrets.DIGITALOCEAN_USERNAME }}
+          echo ${{ secrets.HOST }}
+          echo ${{ secrets.SSH_PORT }}
+          echo ${{ secrets.SSH_PRIVATE }}
+          echo ${{ secrets.SSH_PHRASE }}
+
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: ${{ secrets.HOST }}
           username: ${{ secrets.DIGITALOCEAN_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE }}
+          host: ${{ secrets.HOST }}
           port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE }}
           passphrase: ${{ secrets.SSH_PHRASE }}
           script: |
             whoami
