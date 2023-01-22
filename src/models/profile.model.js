@@ -11,6 +11,21 @@ const profileSchema = new mongoose.Schema(
       mobile: String,
       telephone: String,
     },
+
+    farmer: {
+      crops: [
+        {
+          name: String,
+          image: String,
+        },
+      ],
+    },
+
+    distributer: {},
+
+    supplier: {},
+
+    seller: {},
   },
   { timestamps: true }
 )
