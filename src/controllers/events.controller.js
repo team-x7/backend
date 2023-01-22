@@ -8,7 +8,7 @@ exports.createEvent = catchAsync(async (req, res, next) => {
 })
 
 exports.getAllEvents = catchAsync(async (req, res, next) => {
-  const events = await EventModel.find()
+  const events = await EventModel.find().sort('-createdAt')
   res.json(events)
 })
 
