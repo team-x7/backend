@@ -5,7 +5,7 @@ const app = express()
 require('dotenv').config()
 
 app.get('/', (req, res) => {
-  res.json({ msg: 'hello world' })
+  res.send('App is running')
 })
 
 app.get('/healthcheck', (req, res) => {
