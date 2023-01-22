@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "agrostackk",
+  "private_key_id": "92f80667ae88bfa146594a649cb87f6f423ddb49",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCoUuWV67hCd2Lv\nHkDzh65ffKSej5EdyIdvXzwaFLueTlENdZNN0W0aa2Muej+zjTWa6lltnfMRp1Na\nxi9dRhfdbhntwK3VnXGeuCg/U923D6Q70nJj/MehFb3nOuei+MUGei7OHxkqU/ww\nztOIMq7KSQ0HhsUk2MyjbVsDH2auhfjnzF949qB2jtJwk6EAIpXNDjI7llZMbzWa\nfRdgYsTbwvT2CE4BnGAUgDcP9ijzpEgMC57C1OO1xjulx/0jNsGbXAOYQLmvZBBu\n/jTqA3kQuDqc4Esy9zrdqAMjlo+Zm8m9gY9MzWGHFSc/wDKVDx4forwU6bkemhrl\nC6JVQ7mtAgMBAAECggEADZolU2gpC7X6GLipJwTf4neAFhAj+fQqfaWEhdcHElPh\n2OSXcsJpvqjO6wKWAzx2CH7Hm0QYUGTlJ4C8cx0m8I3lKoFXitueQuU+2187m394\nFh17gPj8aNgI8JaiAVl5EnztK1r3/aOrzYXpMihmV5JvqxwI8mFSqCI+KJJxCclI\nNq5x8biRCxBDMfZL50HtUwM5sPI1B5eAfAypQcrtdqa4RLi9SxDthpLnRF4UB9eI\nDqyA6wOpPwvFJhZtwesrFkmRe2JOIfowzQRMeS1wILebtP6c4eaWoItBzHiaYrVt\n2dMBhdU3u2AsjYCw9/8LB5uzj6Rov8tW42EVD73PQQKBgQDR1yZXdYZ1fVXQZCHq\nAycPStd5/iaVibbk6GWqaCGVOOPC2M/zCYR1o98ULsGgDlGtEfJ6wnwB49B7O2tO\n5+wXKhS9/sqvUhJxZHbWxti4F1Zgv8Z1iBwN2PHDYS0O9ONbYS6YZ3x8xDIYd+At\nLInUVTmG91A3i6htS+VXGlFAEwKBgQDNWc0O91Qw/EDTiUdHvB7hiF/etYOSp9Fy\njeEHui3i/e63XJdjSu9Ibw/Wu9Ktu8XZUtIBm5UAoDgP/MBD3tLubruui1tIzdW9\noRkVjvdCOTOeeZrnblyyeWgFYTuKJqm1jQH7G+cNuTlL/iWzx6ZmFeFR9P8w745b\nraV/yFfXPwKBgHG/A3yjK0iisRKuRKf6H4Etm5H4T2f955M72mg92/5sgSHMryRa\nA2BVfQYOtkyRlnqPYPZkWB4aJJe4RNnX4+VGnUnERJA2l+K5h6Wy0iUwGVWGfwiU\nyEhFUgALvAYAfwG4sy5P4m4rV9BlorI6E1hy/iUICIajgKAGZQILNQHbAoGAc8yp\nK0Bj9L+7Ws62KIi4LVx3G6LmUGRcYyoI9Q+TYsbpv/Lx1+dg6kre9quyEZCq8HOY\nw5lVvCWdl75jOaLE9fnx0mr5jiOs3aOj/plBa9HP/xT6OnnswiReeXIsXiqRVzTu\nIgnJEN8bpXPrFOeIOVcrWck7wv/EGoTgqB91EYcCgYBXF6ETePnAjnaStWAd7UXQ\nKHamfmYf+2r/9uCEItGFyqAQYMy721EzSQ2RSadn20gChC4BL1wh36/ye/mQ8PHd\nAnIybEXHc6v9qpGIRsRvgNcp417ZWn9pFbXM7XBy2zbWPMlAXAGUmmST2DG25pLQ\nRRnGImcwpBQS/hNkcoXEww==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-xn4cp@agrostackk.iam.gserviceaccount.com",
+  "client_id": "116292668641058759365",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-xn4cp%40agrostackk.iam.gserviceaccount.com"
+}
