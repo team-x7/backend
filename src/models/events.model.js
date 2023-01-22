@@ -9,27 +9,22 @@ const eventSchema = new mongoose.Schema(
         required: [true, 'contact.telephone is required'],
       },
     },
-    address: {
-      state: {
+    location: {
+      // GeoJSON Point
+      type: {
         type: String,
-        enum: ['Province 1'],
+        enum: ['Point'],
       },
-      city: {
-        type: String,
-        required: [true, 'address.city is required'],
+      coordinates: {
+        type: [Number],
+        index: '2dsphere',
       },
-      street: {
-        type: String,
-        required: [true, 'address.street is required'],
-      },
-      lat: {
-        type: Number,
-        required: [true, 'address.lat is required'],
-      },
-      long: {
-        type: Number,
-        required: [true, 'address.long is required'],
-      },
+      formattedAddress: String,
+      street: String,
+      city: String,
+      state: String,
+      zipcode: String,
+      country: String,
     },
     foodExpiryTime: Date,
     foodItems: [

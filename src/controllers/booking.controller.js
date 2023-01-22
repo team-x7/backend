@@ -1,5 +1,4 @@
 const BookingModel = require('../models/booking.model')
-
 const catchAsync = require('../utils/catchAsync')
 
 exports.createBooking = catchAsync(async (req, res, next) => {
@@ -18,7 +17,7 @@ exports.getBooking = catchAsync(async (req, res, next) => {
 })
 
 exports.updateBooking = catchAsync(async (req, res, next) => {
-  const { datesHistory, ...restBody } = req.body
+  const { datesHistory, status, ...restBody } = req.body
 
   const booking = await BookingModel.findByIdAndUpdate(
     req.params.id,
@@ -29,18 +28,24 @@ exports.updateBooking = catchAsync(async (req, res, next) => {
 })
 
 exports.postPoneBooking = catchAsync(async (req, res, next) => {
-  const booking = await BookingModel.findByIdAndUpdate(req.params.id, {
+  req.manualBody = {
     status: 'postponed',
     $push: { datesHistory: req.body },
-  })
-
-  res.json(booking)
+  }
+  next()
 })
 
 exports.cancelBooking = catchAsync(async (req, res, next) => {
-  const booking = await BookingModel.findByIdAndUpdate(req.params.id, {
-    status: 'cancelled',
-  })
+  req.manualBody = { status: 'cancelled' }
+  next()
+})
+
+exports.updateStatus = catchAsync(async (req, res, next) => {
+  const booking = await BookingModel.findByIdAndUpdate(
+    req.params.id,
+    req.manualBody ? req.manualBody : {},
+    { new: true }
+  )
   res.json(booking)
 })
 

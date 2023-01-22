@@ -7,6 +7,7 @@ const globalErrorController = require('./controllers/globalErrorHandler')
 
 const profileRoutes = require('./routes/profile.route')
 const bookingRoutes = require('./routes/booking.route')
+const eventRoutes = require('./routes/events.route')
 
 require('dotenv').config()
 
@@ -16,6 +17,7 @@ app.use(express.json())
 // routes
 app.use('/api/v1/profiles', profileRoutes)
 app.use('/api/v1/bookings', bookingRoutes)
+app.use('/api/v1/events', eventRoutes)
 
 app.get('/healthcheck', (req, res) => {
   res.json({ status: 'aba ta purai naya ho' })
