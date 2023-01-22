@@ -5,9 +5,11 @@ const {
   updateProfile,
   createProfile,
   getAllProfiles,
+  getProfile,
 } = require('../controllers/profile.controller')
 
 router.get('/', getAllProfiles)
+router.get('/:id', getProfile)
 
 router.use(auth)
 
