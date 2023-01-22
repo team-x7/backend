@@ -3,6 +3,7 @@ ENV NODE_ENV=production
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
+COPY firebase_cred.json ./
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN npm install -g nodemon
 RUN \
