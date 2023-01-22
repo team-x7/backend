@@ -2,7 +2,6 @@ const {
   createEvent,
   getAllEvents,
   getEvent,
-  deleteAll,
 } = require('../controllers/events.controller')
 
 const router = require('express').Router()

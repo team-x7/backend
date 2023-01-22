@@ -16,7 +16,3 @@ exports.getEvent = catchAsync(async (req, res, next) => {
   const event = await EventModel.findById(req.params.id)
   res.json(event)
 })
-// exports.deleteAll = catchAsync(async (req, res, next) => {
-  const event = await EventModel.deleteMany()
-  res.json(event)
-})
