@@ -6,7 +6,6 @@ const eventSchema = new mongoose.Schema(
       phone: { type: String, required: [true, 'contact.phone is required'] },
       telephone: {
         type: String,
-        required: [true, 'contact.telephone is required'],
       },
     },
     location: {

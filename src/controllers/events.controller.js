@@ -2,6 +2,7 @@ const EventModel = require('../models/events.model')
 const catchAsync = require('../utils/catchAsync')
 
 exports.createEvent = catchAsync(async (req, res, next) => {
+  console
   const event = await EventModel.create(req.body)
   res.json(event)
 })
