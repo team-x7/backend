@@ -18,13 +18,13 @@ exports.getAllProfiles = catchAsync(async (req, res, next) => {
 })
 
 exports.getProfile = catchAsync(async (req, res, next) => {
-  const profile = await ProfileModel.findById(req.params.id)
+  const profile = await ProfileModel.findOne({ uid: req.params.uid })
   res.json(profile)
 })
 
 exports.updateProfile = catchAsync(async (req, res, next) => {
   const profile = await ProfileModel.findOneAndDelete(
-    { uuid: req.params.id },
+    { uid: req.params.uid },
     req.body,
     { new: true }
   )
