@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 
 const eventSchema = new mongoose.Schema(
   {
+    title: {
+      type: String,
+      required: [true, 'Please add title'],
+    },
     contact: {
       phone: { type: String, required: [true, 'contact.phone is required'] },
       telephone: {
