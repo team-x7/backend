@@ -3,10 +3,10 @@ const mongoose = require('mongoose')
 const bookingSchema = new mongoose.Schema(
   {
     firstName: {
-      type: Sring,
+      type: String,
     },
     lastName: {
-      type: Strintg,
+      type: String,
     },
     contact: {
       phone: { type: String, required: [true, 'contact.phone is required'] },
