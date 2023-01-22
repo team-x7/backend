@@ -3,16 +3,16 @@ const mongoose = require('mongoose')
 const profileSchema = new mongoose.Schema(
   {
     uid: String,
-    userType: {
+    role: {
       type: String,
-      enum: ['farmer', 'distributer', 'supplier', 'seller'],
+      enum: ['farmer', 'distributer', 'supplier', 'seller', 'admin'],
     },
     contact: {
       mobile: String,
       telephone: String,
     },
   },
-  {}
+  { timestamps: true }
 )
 
 module.exports = mongoose.model('profiles', profileSchema)

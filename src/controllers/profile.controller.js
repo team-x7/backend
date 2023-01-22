@@ -7,7 +7,7 @@ exports.createProfile = catchAsync(async (req, res, next) => {
   const profile = await ProfileModel.create({ uid: req.firebaseUser.uid })
 
   firebaseAdmin.auth().setCustomUserClaims(req.firebaseUser.uid, {
-    profileCreate: true,
+    profileCreated: true,
   })
   res.json(profile)
 })
