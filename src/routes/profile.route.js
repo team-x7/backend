@@ -4,7 +4,10 @@ const { auth } = require('../middlewares/auth.middleware')
 const {
   updateProfile,
   createProfile,
+  getAllProfiles,
 } = require('../controllers/profile.controller')
+
+router.get('/', getAllProfiles)
 
 router.use(auth)
 
