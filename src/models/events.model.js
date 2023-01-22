@@ -25,6 +25,9 @@ const eventSchema = new mongoose.Schema(
       zipcode: String,
       country: String,
     },
+    message: {
+      type: String,
+    },
     foodExpiryTime: Date,
     foodItems: [
       {
